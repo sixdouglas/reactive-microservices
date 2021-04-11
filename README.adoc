@@ -1,2 +1,16 @@
 = Notation des élèves
 
+Ce projet est un exemple d'utilisation de Spring Boot Cloud et de Spring Webflux + R2DBC.
+
+Il est composé des briques suivantes :
+
+* `admin` : Spring Boot Admin Server, permet de suivre l'état des autres instances.
+* `batch` : Spring Boot + Liquibase, application simple permettant de mettre à jour la base de données.
+* `config` : Spring Cloud Config, gère la configuration des différents services. Il est lié au repository Github suivant de https://github.com/sixdouglas/reactive-microservices-config[Configuration]. Il y a deux variables d'environnement nécessaires au démarrage de ce serveur : `ISSUER_AUDIANCE` `ISSUER_ENDPOINT`. En effet, ces variables dépendent de votre Compte https://auth0.com/[auth0] et ne doivent pas être commitées dans le repository Github.
+* `gateway` : Spring Cloud Gateway, point d'accès principal de l'application
+* `lesson` : Microservice métier gèrant les **Domaines** d'études, les **Diplômes**, les **Années**, les **Matières** et les **Semestres**.
+* `notation` : Microservice métier gérant les **Devoirs** et les **Notes**.
+
+Il y a également un fichier Docker Compose `db-docker-compose.yaml` permettant de démarrer les deux instances de MariaDB, une par micro-service métier. Les repertoires de données et de log ont été externalisés dans chacun des projet respectifs (`lesson/src/mariadb/data-dir` et `lesson/src/mariadb/log-dir`, ainsi que `notation/src/mariadb/data-dir`, et `notation/src/mariadb/log-dir`).
+De même les variables des Docker MariaBD, comme le mot de passe `root` ou le nom de la base de données, ont été externalisées dans les fichiers `lessons-db-variables.env` et `notations-db-variables.env`.
+
