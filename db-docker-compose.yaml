@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  mariadb-lessons:
+    env_file:
+      - lessons-db-variables.env
+    image: "mariadb:${LESSONS_MARIADB_VERSION}"
+    restart: 'always'
+    ports:
+      - '${LESSONS_MARIADB_POST}:3306'
+    volumes:
+      - ${LESSONS_MARIADB_DATA_DIR}:/var/lib/mysql
+      - ${LESSONS_MARIADB_LOG_DIR}:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${LESSONS_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${LESSONS_MYSQL_DATABASE}
+      MYSQL_USER: ${LESSONS_MYSQL_USER}
+      MYSQL_PASSWORD: ${LESSONS_MYSQL_PASSWORD}
+  mariadb-notations:
+    env_file:
+      - notations-db-variables.env
+    image: "mariadb:${NOTATIONS_MARIADB_VERSION}"
+    restart: 'always'
+    ports:
+      - '${NOTATIONS_MARIADB_POST}:3306'
+    volumes:
+      - ${NOTATIONS_MARIADB_DATA_DIR}:/var/lib/mysql
+      - ${NOTATIONS_MARIADB_LOG_DIR}:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${NOTATIONS_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${NOTATIONS_MYSQL_DATABASE}
+      MYSQL_USER: ${NOTATIONS_MYSQL_USER}
+      MYSQL_PASSWORD: ${NOTATIONS_MYSQL_PASSWORD}

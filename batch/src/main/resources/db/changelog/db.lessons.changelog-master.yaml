@@ -1,0 +1,122 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: sixdouglas
+      changes:
+        - createTable:
+            tableName: domaine
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: ordre
+                  type: integer
+
+  - changeSet:
+      id: 2
+      author: sixdouglas
+      changes:
+        - createTable:
+            tableName: diplome
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: ordre
+                  type: integer
+              - column:
+                  name: domaine_id
+                  type: integer
+
+  - changeSet:
+      id: 3
+      author: sixdouglas
+      changes:
+        - createTable:
+            tableName: annee
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: ordre
+                  type: integer
+              - column:
+                  name: diplome_id
+                  type: integer
+
+  - changeSet:
+      id: 4
+      author: sixdouglas
+      changes:
+        - createTable:
+            tableName: semestre
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: ordre
+                  type: integer
+              - column:
+                  name: annee_id
+                  type: integer
+
+  - changeSet:
+      id: 5
+      author: sixdouglas
+      changes:
+        - createTable:
+            tableName: matiere
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: ordre
+                  type: integer
+              - column:
+                  name: semestre_id
+                  type: integer
+              - column:
+                  name: enseignant_d
+                  type: varchar(50)
+

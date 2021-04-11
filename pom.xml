@@ -11,8 +11,18 @@
     <groupId>org.sixdouglas.reactive.microservices</groupId>
     <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>parent</name>
     <description>Parent Microservice Project</description>
+
+    <modules>
+        <module>admin</module>
+        <module>config</module>
+        <module>gateway</module>
+        <module>lesson</module>
+        <module>notation</module>
+    </modules>
+
     <properties>
         <java.version>11</java.version>
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>

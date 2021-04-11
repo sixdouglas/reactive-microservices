@@ -1,0 +1,49 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: sixdouglas
+      changes:
+        - createTable:
+            tableName: devoir
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+              - column:
+                  name: date_time
+                  type: DATETIME
+              - column:
+                  name: matiere_id
+                  type: integer
+
+  - changeSet:
+      id: 2
+      author: sixdouglas
+      changes:
+        - createTable:
+            tableName: note
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: note
+                  type: decimal(4,2)
+              - column:
+                  name: remarque
+                  type: varchar(150)
+              - column:
+                  name: eleve_id
+                  type: integer

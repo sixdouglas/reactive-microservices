@@ -1,5 +1,7 @@
-server:
-  port: 7200
 spring:
   application:
-    name: notation
+    name: notation-app
+  config:
+    import: optional:configserver:http://localhost:7800
+  profiles:
+    active: local

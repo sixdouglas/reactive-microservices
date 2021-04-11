@@ -2,4 +2,16 @@ server:
   port: 7800
 spring:
   application:
-    name: config
+    name: config-app
+  boot:
+    admin:
+      client:
+        url: http://localhost:7900
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sixdouglas/reactive-microservices-config
+
+management.endpoints.web.exposure.include: '*'
+

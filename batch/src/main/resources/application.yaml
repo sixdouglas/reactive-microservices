@@ -1,6 +1,6 @@
 spring:
   application:
-    name: lesson-app
+    name: batch-app
   config:
     import: optional:configserver:http://localhost:7800
   profiles:
