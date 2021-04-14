@@ -1,10 +1,12 @@
-package org.sixdouglas.reactive.microservices.lesson;
+package org.sixdouglas.reactive.microservices.lesson.annee;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-public class Annee {
+@AllArgsConstructor
+class Annee {
     @Id
     private Long id;
     private String name;

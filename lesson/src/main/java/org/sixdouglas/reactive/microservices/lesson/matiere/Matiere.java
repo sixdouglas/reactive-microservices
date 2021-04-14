@@ -1,10 +1,12 @@
-package org.sixdouglas.reactive.microservices.lesson;
+package org.sixdouglas.reactive.microservices.lesson.matiere;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+@AllArgsConstructor
 @Data
-public class Matiere {
+class Matiere {
     @Id
     private Long id;
     private String name;

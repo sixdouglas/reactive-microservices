@@ -120,3 +120,52 @@ databaseChangeLog:
                   name: enseignant_d
                   type: varchar(50)
 
+  - changeSet:
+      id:  6
+      author:  sixdouglas
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: raw/domaine.sql
+            stripComments: true
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id:  7
+      author:  sixdouglas
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: raw/diplome.sql
+            stripComments: true
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id:  8
+      author:  sixdouglas
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: raw/annee.sql
+            stripComments: true
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id:  9
+      author:  sixdouglas
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: raw/semestre.sql
+            stripComments: true
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id:  10
+      author:  sixdouglas
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: raw/matiere.sql
+            stripComments: true
+            relativeToChangelogFile: true
