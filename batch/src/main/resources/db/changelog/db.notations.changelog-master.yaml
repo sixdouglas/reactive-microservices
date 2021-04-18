@@ -47,3 +47,14 @@ databaseChangeLog:
               - column:
                   name: eleve_id
                   type: integer
+
+  - changeSet:
+      id: 3
+      author: sixdouglas
+      changes:
+        - addColumn:
+            tableName: note
+            columns:
+              - column:
+                  name: note_id
+                  type: integer
