@@ -47,7 +47,7 @@ class MatiereHandler {
         return Mono
                 .from(annees)
                 .flatMap(p -> ServerResponse
-                        .created(URI.create("/api/semestres/" + p.getId()))
+                        .created(URI.create("/api/matieres/" + p.getId()))
                         .contentType(MediaType.APPLICATION_JSON)
                         .build()
                 );

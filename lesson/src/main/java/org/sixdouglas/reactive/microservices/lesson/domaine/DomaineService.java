@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 @Log4j2
 @RequiredArgsConstructor
 @Service
-class DomaineService {
+class DomaineService implements IDomaineService {
 
     private final DomaineRepository domaineRepository;
 
@@ -24,7 +24,11 @@ class DomaineService {
     public Mono<Domaine> update(Long id, String name, Integer ordre) {
         return this.domaineRepository
                 .findById(id)
-                .map(p -> new Domaine(p.getId(), name, ordre))
+                .map(p -> {
+                    p.setName(name);
+                    p.setOrdre(ordre);
+                    return p;
+                })
                 .flatMap(this.domaineRepository::save);
     }
 
@@ -39,4 +43,8 @@ class DomaineService {
                 .save(new Domaine(null, name, ordre));
     }
 
+    @Override
+    public Mono<Boolean> domaineExistsById(Long domaineId) {
+        return this.domaineRepository.existsById(domaineId);
+    }
 }
